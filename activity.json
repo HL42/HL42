@@ -1,0 +1,47 @@
+{
+  "source": "https://api.github.com/users/HL42/events/public?per_page=100",
+  "fetched_at": "2026-11-24 20:44 UTC",
+  "scope": "public push and branch-creation events; excludes Profile maintenance; not complete contribution history",
+  "events": [
+    {
+      "id": "28003584832",
+      "at": "2026-11-23 04:49 UTC",
+      "sort": "2026-11-23T04:49:20+00:00",
+      "repo": "HL42/personal-web",
+      "label": "push cb55097",
+      "url": "https://github.com/HL42/personal-web/commit/cb550977884e953a81dd8239aa81531c3a3b92c5"
+    },
+    {
+      "id": "28132446657",
+      "at": "2026-11-23 04:04 UTC",
+      "sort": "2026-11-23T04:04:04+00:00",
+      "repo": "HL42/personal-web",
+      "label": "created branch phase-2-personalization",
+      "url": "https://github.com/HL42/personal-web/tree/phase-2-personalization"
+    },
+    {
+      "id": "26353353569",
+      "at": "2026-11-05 19:15 UTC",
+      "sort": "2026-11-05T19:15:39+00:00",
+      "repo": "HL42/SaveWise",
+      "label": "push c5020f0",
+      "url": "https://github.com/HL42/SaveWise/commit/c5020f056b25eed241626abade1c5800b0466ca0"
+    },
+    {
+      "id": "26344689901",
+      "at": "2026-11-05 17:57 UTC",
+      "sort": "2026-11-05T17:57:43+00:00",
+      "repo": "HL42/SaveWise",
+      "label": "push 4930352",
+      "url": "https://github.com/HL42/SaveWise/commit/493035270596b8b8f17897203ec907d7e975fad3"
+    },
+    {
+      "id": "25340545352",
+      "at": "2026-10-27 02:32 UTC",
+      "sort": "2026-10-27T02:32:15+00:00",
+      "repo": "HL42/SaveWise",
+      "label": "push 606a50a",
+      "url": "https://github.com/HL42/SaveWise/commit/606a50a0ea3c59c1ba7ded2be95d8960e2876d66"
+    }
+  ]
+}

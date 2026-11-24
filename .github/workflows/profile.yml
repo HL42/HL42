@@ -1,0 +1,49 @@
+name: Check profile and refresh activity preview
+
+on:
+  push:
+    paths:
+      - README.md
+      - assets/**
+      - scripts/**
+      - activity.json
+      - .github/workflows/profile.yml
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 12 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # checkout v4
+        with:
+          persist-credentials: false
+      - name: Validate source and saved snapshot
+        run: python3 scripts/validate.py
+      - name: Fetch actual public events for review
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/activity.py
+      - name: Validate refreshed output
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python3 scripts/validate.py
+      - name: Upload refreshed README for review
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # upload-artifact v4
+        with:
+          name: profile-activity-preview
+          path: |
+            README.md
+            activity.json
+          retention-days: 7
